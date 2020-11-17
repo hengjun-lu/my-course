@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 数据库驱动-->
+<!--    <classPathEntry  location="D:\penn\dev\maven\repository\mysql\mysql-connector-java\5.1.37\mysql-connector-java-5.1.37.jar"/>-->
+    <context id="Mysql"  targetRuntime="MyBatis3" defaultModelType="flat">
+
+        <!--    检测关键字 -->
+        <property name="autoDelimitKeywords" value="true"/>
+        <!--    字段前后加"`" 为了避免关键字 -->
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <!--覆盖生成XML文件-->
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
+
+        <!--    生成的实体类添加toString 方法        -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+        <!--     是否生成注释-->
+        <commentGenerator>
+<!--         <property name="suppressDate" value="true"/>-->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!--数据库链接URL，用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/courseimooc"
+                        userId="courseimooc"
+                        password="courseimooc">
+        </jdbcConnection>
+
+<!--        <javaTypeResolver>-->
+<!--            <property name="forceBigDecimals" value="false"/>-->
+<!--        </javaTypeResolver>-->
+
+        <!-- 生成DAO的包名和位置-->
+        <javaModelGenerator targetProject="src\main\java"
+                            targetPackage="com.course.server.domain" >
+        </javaModelGenerator>
+        <!-- 生成映射文件mapper.xml-->
+        <sqlMapGenerator  targetProject="src\main\resources"
+                          targetPackage="mapper" >
+        </sqlMapGenerator>
+        <!--mapper类的位置-->
+        <javaClientGenerator targetProject="src\main\java"
+                            targetPackage="com.course.server.mapper"
+                            type="XMLMAPPER" >
+        </javaClientGenerator>
+        <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
+<!--        <table tableName="test" domainObjectName="Test"></table>-->
+<!--        <table tableName="chapter" domainObjectName="Chapter"></table>-->
+<!--        <table tableName="course" domainObjectName="Course"></table>-->
+<!--        <table tableName="section" domainObjectName="Section"></table>-->
+<!--        <table tableName="category" domainObjectName="Category"></table>-->
+<!--        <table tableName="course_category" domainObjectName="CourseCategory"></table>-->
+<!--        <table tableName="course_content" domainObjectName="CourseContent"></table>-->
+<!--        <table tableName="teacher" domainObjectName="Teacher"></table>-->
+<!--        <table tableName="file" domainObjectName="File"></table>-->
+<!--        <table tableName="course_content_file" domainObjectName="CourseContentFile"></table>-->
+<!--        <table tableName="user" domainObjectName="User"></table>-->
+<!--        <table tableName="resource" domainObjectName="Resource"></table>-->
+<!--        <table tableName="role" domainObjectName="Role"></table>-->
+<!--        <table tableName="role_resource" domainObjectName="RoleResource"></table>-->
+<!--        <table tableName="role_user" domainObjectName="RoleUser"></table>-->
+<!--        <table tableName="member" domainObjectName="Member"></table>-->
+<!--        <table tableName="sms" domainObjectName="Sms"></table>-->
+<!--        <table tableName="member_course" domainObjectName="MemberCourse"></table>-->
+
+<!--        <table tableName="cash_billing_adjustment_application" domainObjectName="TntCashAdjustApply" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>-->
+    </context>
+</generatorConfiguration>

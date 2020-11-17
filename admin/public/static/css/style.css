@@ -1,0 +1,6 @@
+/*
+表格内容上线居中显示
+ */
+.table td{
+    vertical-align: middle !important;
+}
